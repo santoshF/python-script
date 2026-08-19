@@ -6,10 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Dry run (default — no files are changed); -d defaults to current directory
-python3 rename_files.py -d <directory> [--sequential | --replace OLD NEW | --regex PAT REPL | --lowercase | --remove-spaces]
+python3 file_renamer/rename_files.py -d <directory> [--sequential | --replace OLD NEW | --regex PAT REPL | --lowercase | --remove-spaces]
 
 # Apply changes
-python3 rename_files.py -d <directory> <mode-flag> --execute
+python3 file_renamer/rename_files.py -d <directory> <mode-flag> --execute
 ```
 
 Mode-specific options:
@@ -21,7 +21,7 @@ No dependencies beyond the Python 3 standard library. No build step, no virtual 
 
 ## Architecture
 
-Single-file script (`rename_files.py`). Each renaming strategy is a standalone function:
+Single-file script (`file_renamer/rename_files.py`). Each renaming strategy is a standalone function:
 
 - `rename_sequential` — sorts files lexicographically, then renames to `prefix_N[ext]`
 - `rename_replace` — plain substring replace across filenames
